@@ -5,15 +5,18 @@ Rectangle {
     width: parent.width
     height: parent.height
     color: "#F0FFD6"
+    property variant values
+    property string assetHome
+
     Text {
-        text: header
+        text: values.header
         font.pointSize: 35
         anchors.centerIn: parent
     }
 
     MediaPlayer {
         id: player
-        source: Qt.resolvedUrl(source)
+        source: "file://" + assetHome + "/" + values.sound
     }
 
     Component.onCompleted: {

@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
+import "data.js" as Data
 
 Rectangle {
     id: root
@@ -7,7 +8,36 @@ Rectangle {
     height: 768
     visible: true
     property int currentPage: 1
-    property int maxPages: 2
+    property int maximumPage: 2
+
+
+    ListModel {
+        id: questionData
+        ListElement {
+            type: "intro"
+            sound: "sounds/intro.wav"
+            header: "Which?"
+        }
+        ListElement {
+            type: "mcq"
+            header: "Which one is fruit?"
+            sound: "sounds/fruit.wav"
+            questions: [
+                ListElement {
+                    src: "pics/apple.png"; sound: "sounds/apple.wav"; correct: true
+                },
+                ListElement {
+                    src: "pics/chopper.jpg"; sound: "sounds/chopper.wav"; correct: false
+                },
+                ListElement {
+                    src: "pics/car.png"; sound: "sounds/car.wav"; correct: false
+                },
+                ListElement {
+                    src: "pics/pant.jpg"; sound: "sounds/pant.wav"; correct: false
+                }
+            ]
+        }
+    }
     Row {
         Rectangle {
             id: navBack
@@ -62,11 +92,10 @@ Rectangle {
     }
 
     function getCurrentPage() {
-        var currentData = questionData.get(currentPage - 1);
+        var currentData = Data.data[currentPage - 1];
         var component = Qt.createComponent("qrc:/" + currentData.type + ".qml");
-
         if(component.status === Component.Ready) {
-            return component.createObject(root, currentData);
+            return component.createObject(root, {"values": currentData, "assetHome": data_model.getDropBoxHome()});
         } else {
             return null;
         }

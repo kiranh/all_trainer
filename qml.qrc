@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>data.qml</file>
+        <file>data.js</file>
         <file>back.png</file>
         <file>forward.png</file>
         <file>intro.qml</file>
