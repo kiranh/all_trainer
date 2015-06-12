@@ -33,6 +33,14 @@ Rectangle {
                     width: choices.width/2
                     height: choices.height/2
                     source: "file://" + assetHome + "/" + values.questions[0].src
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            if(values.questions[0].correct) {
+
+                            }
+                        }
+                    }
                 }
                 Image {
                     width: choices.width/2
@@ -59,6 +67,7 @@ Rectangle {
         id: player
         source: "file://" + assetHome + "/" + values.sound
     }
+
 
     Component.onCompleted: {
         player.play();
