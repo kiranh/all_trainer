@@ -68,7 +68,7 @@ Rectangle {
         var currentData = Data.data[currentPage - 1];
         var component = Qt.createComponent("qrc:/" + currentData.type + ".qml");
         if(component.status === Component.Ready) {
-            return component.createObject(root, {"values": currentData, "assetHome": data_model.getDropBoxHome()});
+            return component.createObject(stackView, {"values": currentData, "assetHome": data_model.getDropBoxHome()});
         } else {
             return null;
         }
