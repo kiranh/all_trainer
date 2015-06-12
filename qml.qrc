@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>data.qml</file>
+        <file>back.png</file>
+        <file>forward.png</file>
+        <file>intro.qml</file>
+        <file>mcq.qml</file>
     </qresource>
 </RCC>
