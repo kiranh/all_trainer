@@ -40,7 +40,9 @@ Rectangle {
             width: (root.width*8)/10
             height: root.height
             focus: true
-            initialItem: {"item": getCurrentPage(), immediate: true, destroyOnPop: true }
+            Component.onCompleted: {
+                stackView.push({"item": getCurrentPage(), immediate: true, replace: true, destroyOnPop: true});
+            }
         }
 
         Rectangle {

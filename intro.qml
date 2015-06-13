@@ -16,6 +16,5 @@ Rectangle {
 
     Component.onCompleted: {
         root.playFile("file://" + assetHome + "/" + values.sound);
-        root.playFile("file://" + assetHome + "/" + values.sound);
     }
 }
