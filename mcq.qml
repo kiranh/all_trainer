@@ -42,10 +42,11 @@ Rectangle {
                         width: 256
                         height: 256
                         border.color: "#FF9933"
+                        property variant questionData: values.questions[index]
                         Image {
                             width: 256
                             height: 256
-                            source: "file://" + assetHome + "/" + values.questions[index].src
+                            source: "file://" + assetHome + "/" + questionData.src
                             fillMode: Image.PreserveAspectFit
                             clip: true
                         }
@@ -54,7 +55,7 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: true
                             onEntered: {
-                                root.playHoverSound(this, values.questions[index].sound);
+                                root.playHoverSound(this, questionData.sound);
                             }
 
                             onClicked: {
