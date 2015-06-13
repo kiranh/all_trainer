@@ -73,15 +73,8 @@ Rectangle {
         }
     }
 
-
-    MediaPlayer {
-        id: player
-        source: "file://" + assetHome + "/" + values.sound
-    }
-
-
     Component.onCompleted: {
-        player.play();
+        Common.playSound("file://" + assetHome + "/" + values.sound);
     }
 
 }
