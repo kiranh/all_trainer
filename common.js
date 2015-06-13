@@ -6,12 +6,16 @@ function getSpriteImage(parent, spriteName) {
         return null;
     }
 }
+var globalPlayer = null;
 
 function playSound(soundSource) {
     var component = Qt.createComponent("qrc:/player.qml");
     if(component.status === Component.Ready) {
-        var player = component.createObject(parent,  {"source": soundSource});
-        player.play();
+        if(globalPlayer !== null) {
+            globalPlayer.stop();
+        }
+        globalPlayer = component.createObject(parent,  {"source": soundSource});
+        globalPlayer.play();
     } else {
         return null;
     }

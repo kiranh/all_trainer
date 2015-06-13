@@ -22,4 +22,7 @@ Rectangle {
     Component.onCompleted: {
         player.play();
     }
+    Component.onDestruction: {
+        player.pause();
+    }
 }

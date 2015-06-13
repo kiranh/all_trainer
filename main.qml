@@ -8,7 +8,7 @@ Rectangle {
     height: 768
     visible: true
     property int currentPage: 1
-    property int maximumPage: 2
+    property int maximumPage: Data.data.length
 
 
     Row {
