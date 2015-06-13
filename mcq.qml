@@ -54,7 +54,7 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: true
                             onEntered: {
-                                root.playFile("file://" + assetHome + "/" + values.questions[index].sound);
+                                root.playHoverSound(this, values.questions[index].sound);
                             }
 
                             onClicked: {

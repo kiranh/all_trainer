@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
-import "data.js" as Data
 import QtMultimedia 5.0
+import "data.js" as Data
 
 Rectangle {
     id: root
@@ -76,13 +76,32 @@ Rectangle {
         autoLoad: false
     }
 
+    Timer {
+        id: delayedTimer
+        repeat: false
+        running: false
+    }
+
     function playFile(file) {
+        delayedTimer.stop();
         if(player.playbackState === MediaPlayer.PlayingState) {
             player.stop();
         }
         player.source = file;
         console.log("Playing the file : " + file);
         player.play();
+    }
+
+    function playHoverSound(mouseAreaObject, file) {
+        delayedTimer.stop();
+        delayedTimer.interval = 1000;
+        delayedTimer.triggered.connect(function() {
+            if(mouseAreaObject.containsMouse) {
+                playFile("file://" + data_model.getDropBoxHome() + "/" + file);
+            }
+            delayedTimer.stop();
+        });
+        delayedTimer.start();
     }
 
     function getCurrentPage() {
