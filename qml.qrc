@@ -11,5 +11,6 @@
         <file>common.js</file>
         <file>wrong.png</file>
         <file>player.qml</file>
+        <file>intro_pic.qml</file>
     </qresource>
 </RCC>
