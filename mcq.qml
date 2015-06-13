@@ -61,7 +61,7 @@ Rectangle {
                             onClicked: {
                                 if(values.questions[index].correct) {
                                     Common.getSpriteImage(parent, "ok.png");
-                                    root.playFile("file://" + assetHome + "/sounds/correct.m4a");
+                                    root.playFile("file://" + assetHome + "/" + questionData.correct_sound);
                                 } else {
                                     Common.getSpriteImage(parent, "wrong.png");
                                     root.playFile("file://" + assetHome + "/sounds/wrong.m4a");
