@@ -7,3 +7,13 @@ function getSpriteImage(parent, spriteName) {
     }
 }
 
+function playSound(soundSource) {
+    var component = Qt.createComponent("qrc:/player.qml");
+    if(component.status === Component.Ready) {
+        var player = component.createObject(parent,  {"source": soundSource});
+        player.play();
+    } else {
+        return null;
+    }
+}
+

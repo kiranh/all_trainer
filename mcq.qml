@@ -52,11 +52,18 @@ Rectangle {
 
                         MouseArea {
                             anchors.fill: parent
+                            hoverEnabled: true
+                            onEntered: {
+                                Common.playSound("file://" + assetHome + "/" + values.questions[index].sound);
+                            }
+
                             onClicked: {
                                 if(values.questions[index].correct) {
                                     Common.getSpriteImage(parent, "ok.png");
+                                    Common.playSound("file://" + assetHome + "/sounds/correct.m4a");
                                 } else {
                                     Common.getSpriteImage(parent, "wrong.png");
+                                    Common.playSound("file://" + assetHome + "/sounds/wrong.m4a");
                                 }
                             }
                         }
