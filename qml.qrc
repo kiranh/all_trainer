@@ -7,5 +7,9 @@
         <file>intro.qml</file>
         <file>mcq.qml</file>
         <file>ok.png</file>
+        <file>sprite.qml</file>
+        <file>common.js</file>
+        <file>wrong.png</file>
+        <file>player.qml</file>
     </qresource>
 </RCC>

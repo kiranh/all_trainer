@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import QtMultimedia 5.0
+import "common.js" as Common
 
 Rectangle {
     id: top
@@ -52,8 +53,10 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                if(values.questions[0].correct) {
-
+                                if(values.questions[index].correct) {
+                                    Common.getSpriteImage(parent, "ok.png");
+                                } else {
+                                    Common.getSpriteImage(parent, "wrong.png");
                                 }
                             }
                         }
@@ -73,5 +76,6 @@ Rectangle {
     Component.onCompleted: {
         player.play();
     }
+
 }
 
