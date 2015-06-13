@@ -14,7 +14,6 @@ Rectangle {
             width: top.width
             height: (top.height)/5.0
             color: top.color
-            border.color: "black"
             Text {
                 text: values.header
                 font.pointSize: 35
@@ -22,41 +21,43 @@ Rectangle {
             }
         }
         Rectangle {
+            width: top.width
+            height: 10
+            color: top.color
+        }
+
+        Rectangle {
             id: choices
             width: top.width
             height: top.height - 100
             color: top.color
             Grid {
                 columns: 2
-                spacing: 5
-                Image {
-                    width: choices.width/2
-                    height: choices.height/2
-                    source: "file://" + assetHome + "/" + values.questions[0].src
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            if(values.questions[0].correct) {
+                spacing: 20
+                anchors.centerIn: parent
+                Repeater {
+                    model: 4
+                    Rectangle {
+                        width: 256
+                        height: 256
+                        border.color: "#FF9933"
+                        Image {
+                            width: 256
+                            height: 256
+                            source: "file://" + assetHome + "/" + values.questions[index].src
+                            fillMode: Image.PreserveAspectFit
+                            clip: true
+                        }
 
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                if(values.questions[0].correct) {
+
+                                }
                             }
                         }
                     }
-                }
-                Image {
-                    width: choices.width/2
-                    height: choices.height/2
-                    source: "file://" + assetHome + "/" + values.questions[1].src
-                }
-
-                Image {
-                    width: choices.width/2
-                    height: choices.height/2
-                    source: "file://" + assetHome + "/" + values.questions[2].src
-                }
-                Image {
-                    width: choices.width/2
-                    height: choices.height/2
-                    source: "file://" + assetHome + "/" + values.questions[3].src
                 }
             }
         }

@@ -6,5 +6,6 @@
         <file>forward.png</file>
         <file>intro.qml</file>
         <file>mcq.qml</file>
+        <file>ok.png</file>
     </qresource>
 </RCC>
