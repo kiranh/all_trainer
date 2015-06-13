@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
 import "data.js" as Data
+import QtMultimedia 5.0
 
 Rectangle {
     id: root
@@ -27,7 +28,7 @@ Rectangle {
                 onClicked: {
                     if(currentPage > 1) {
                         currentPage = currentPage - 1
-                        stackView.push({"item": getCurrentPage(), immediate: true, replace:true});
+                        stackView.push({"item": getCurrentPage(), immediate: true, replace: true, destroyOnPop: true});
                     }
                 }
             }
@@ -39,7 +40,7 @@ Rectangle {
             width: (root.width*8)/10
             height: root.height
             focus: true
-            initialItem: {"item": getCurrentPage() }
+            initialItem: {"item": getCurrentPage(), immediate: true, destroyOnPop: true }
         }
 
         Rectangle {
@@ -57,11 +58,29 @@ Rectangle {
                 onClicked: {
                     if(currentPage < maximumPage) {
                         currentPage += 1
-                        stackView.push({"item": getCurrentPage(), immediate: true, replace: true});
+                        stackView.push({"item": getCurrentPage(), immediate: true, replace: true, destroyOnPop: true});
                     }
                 }
             }
         }
+    }
+
+    MediaPlayer {
+        id: player
+        onError: {
+            console.log("Error in playing" + errorString);
+        }
+        autoPlay: false
+        autoLoad: false
+    }
+
+    function playFile(file) {
+        if(player.playbackState === MediaPlayer.PlayingState) {
+            player.stop();
+        }
+        player.source = file;
+        console.log("Playing the file : " + file);
+        player.play();
     }
 
     function getCurrentPage() {

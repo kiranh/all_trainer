@@ -14,15 +14,8 @@ Rectangle {
         anchors.centerIn: parent
     }
 
-    MediaPlayer {
-        id: player
-        source: "file://" + assetHome + "/" + values.sound
-    }
-
     Component.onCompleted: {
-        player.play();
-    }
-    Component.onDestruction: {
-        player.pause();
+        root.playFile("file://" + assetHome + "/" + values.sound);
+        root.playFile("file://" + assetHome + "/" + values.sound);
     }
 }
