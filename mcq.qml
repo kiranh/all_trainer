@@ -37,7 +37,7 @@ Rectangle {
         spacing: 20
         anchors.centerIn: parent
         Repeater {
-          model: 4
+          model: values.questions.length
           Rectangle {
             width: 256
             height: 256

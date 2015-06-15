@@ -83,25 +83,29 @@ Rectangle {
   }
 
   function playFile(file) {
-    delayedTimer.stop();
-    if(player.playbackState === MediaPlayer.PlayingState) {
-      player.stop();
+    if(file && file.length > 0) {
+      delayedTimer.stop();
+      if(player.playbackState === MediaPlayer.PlayingState) {
+        player.stop();
+      }
+      player.source = file;
+      console.log("Playing the file : " + file);
+      player.play();
     }
-    player.source = file;
-    console.log("Playing the file : " + file);
-    player.play();
   }
 
   function playHoverSound(mouseAreaObject, file) {
-    delayedTimer.stop();
-    delayedTimer.interval = 1000;
-    delayedTimer.triggered.connect(function() {
-      if(mouseAreaObject.containsMouse) {
-        playFile("file://" + data_model.getDropBoxHome() + "/" + file);
-      }
+    if(file && file.length > 0) {
       delayedTimer.stop();
-    });
-    delayedTimer.start();
+      delayedTimer.interval = 1000;
+      delayedTimer.triggered.connect(function() {
+        if(mouseAreaObject.containsMouse) {
+          playFile("file://" + data_model.getDropBoxHome() + "/" + file);
+        }
+        delayedTimer.stop();
+      });
+      delayedTimer.start();
+    }
   }
 
   function getCurrentPage() {
