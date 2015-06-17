@@ -13,6 +13,8 @@
         <file>intro_pic.qml</file>
         <file>pic_question.qml</file>
         <file>lesson_loader.qml</file>
-        <file>content.js</file>
+        <file>loader.js</file>
+        <file>home.png</file>
+        <file>welcome.qml</file>
     </qresource>
 </RCC>

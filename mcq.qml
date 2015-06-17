@@ -55,16 +55,16 @@ Rectangle {
               anchors.fill: parent
               hoverEnabled: true
               onEntered: {
-                root.playHoverSound(this, questionData.sound);
+                mainRoot.playHoverSound(this, questionData.sound);
               }
 
               onClicked: {
                 if(values.questions[index].correct) {
                   Common.getSpriteImage(parent, "ok.png");
-                  root.playFile("file://" + assetHome + "/" + questionData.correct_sound);
+                  mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
                 } else {
                   Common.getSpriteImage(parent, "wrong.png");
-                  root.playFile("file://" + assetHome + "/sounds/wrong.m4a");
+                  mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");
                 }
               }
             }
@@ -75,7 +75,7 @@ Rectangle {
   }
 
   Component.onCompleted: {
-    root.playFile("file://" + assetHome + "/" + values.sound);
+    mainRoot.playFile("file://" + assetHome + "/" + values.sound);
   }
 
 }

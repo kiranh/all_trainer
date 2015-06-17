@@ -44,6 +44,6 @@ Rectangle {
     }
   }
   Component.onCompleted: {
-    root.playFile("file://" + assetHome + "/" + values.sound);
+    mainRoot.playFile("file://" + assetHome + "/" + values.sound);
   }
 }
