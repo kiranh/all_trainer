@@ -14,7 +14,7 @@ Rectangle {
       id: navHome
       width: mainRoot.width
       height: 64
-      color: "#A2FF45"
+      color: "#00A4FF"
       Image {
         id: homeButton
         width: 64
