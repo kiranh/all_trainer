@@ -12,5 +12,6 @@
         <file>wrong.png</file>
         <file>player.qml</file>
         <file>intro_pic.qml</file>
+        <file>pic_question.qml</file>
     </qresource>
 </RCC>
