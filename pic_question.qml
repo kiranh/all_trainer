@@ -28,22 +28,23 @@ Rectangle {
     }
 
     Rectangle {
-      width: 256
-      height: 256
+      width: parent.width
+      height: 380
       border.color: "#FF9933"
       Image {
-        width: 256
-        height: 256
+        width: 640
+        height: 380
         source: "file://" + assetHome + "/" + values.src
         fillMode: Image.PreserveAspectFit
         clip: true
+        anchors.centerIn: parent
       }
     }
 
     Rectangle {
       id: choices
       width: top.width
-      height: top.height - 100
+      height: top.height - 520
       color: top.color
       Grid {
         columns: 2
@@ -53,31 +54,29 @@ Rectangle {
           model: values.questions.length
           Rectangle {
             width: 256
-            height: 256
+            height: 64
             border.color: "#FF9933"
             property variant questionData: values.questions[index]
-            Image {
-              width: 256
-              height: 256
-              source: "file://" + assetHome + "/" + questionData.src
-              fillMode: Image.PreserveAspectFit
-              clip: true
+            Text {
+              text: questionData.text
+              anchors.centerIn: parent
+              font.pointSize: 26
             }
 
             MouseArea {
               anchors.fill: parent
               hoverEnabled: true
               onEntered: {
-                root.playHoverSound(this, questionData.sound);
+                mainRoot.playHoverSound(this, questionData.sound);
               }
 
               onClicked: {
                 if(values.questions[index].correct) {
                   Common.getSpriteImage(parent, "ok.png");
-                  root.playFile("file://" + assetHome + "/" + questionData.correct_sound);
+                  mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
                 } else {
                   Common.getSpriteImage(parent, "wrong.png");
-                  root.playFile("file://" + assetHome + "/sounds/wrong.m4a");
+                  mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");
                 }
               }
             }
@@ -88,7 +87,7 @@ Rectangle {
   }
 
   Component.onCompleted: {
-    root.playFile("file://" + assetHome + "/" + values.sound);
+    mainRoot.playFile("file://" + assetHome + "/" + values.sound);
   }
 
 }
