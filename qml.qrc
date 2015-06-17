@@ -10,8 +10,9 @@
         <file>sprite.qml</file>
         <file>common.js</file>
         <file>wrong.png</file>
-        <file>player.qml</file>
         <file>intro_pic.qml</file>
         <file>pic_question.qml</file>
+        <file>lesson_loader.qml</file>
+        <file>content.js</file>
     </qresource>
 </RCC>
