@@ -23,15 +23,22 @@ Rectangle {
         width: 320
         height: 120
         border.color: "#FF9933"
+        property variant contentData: Content.content[index]
+
         Text {
-          text: Content.content[index].header
+          text: contentData.header
           anchors.centerIn: parent
           font.pointSize: 26
         }
         MouseArea {
+          hoverEnabled: true
           anchors.fill: parent
           onClicked: {
-            mainRoot.showNewPage("lesson_loader", Content.content[index].src)
+            mainRoot.showNewPage("lesson_loader", contentData.src);
+          }
+          onEntered: {
+            console.log("PLaying hover soubnd");
+            mainRoot.playHoverSound(this, contentData.sound);
           }
         }
       }
