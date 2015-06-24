@@ -63,8 +63,9 @@ Rectangle {
                   Common.getSpriteImage(parent, "ok.png");
                   mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
                 } else {
-                  Common.getSpriteImage(parent, "wrong.png");
+                  var wrong = Common.getSpriteImage(parent, "wrong.png");
                   mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");
+                  wrong.destroy(1500);
                 }
               }
             }
