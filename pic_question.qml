@@ -76,7 +76,7 @@ Rectangle {
                   mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
                 } else {
                   var wrong = Common.getSpriteImage(parent, "wrong.png");
-                  wrong.destroy(1500);
+                  wrong.destroy(1000);
                   mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");
                 }
               }

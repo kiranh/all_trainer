@@ -65,7 +65,7 @@ Rectangle {
                 } else {
                   var wrong = Common.getSpriteImage(parent, "wrong.png");
                   mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");
-                  wrong.destroy(1500);
+                  wrong.destroy(1000);
                 }
               }
             }
