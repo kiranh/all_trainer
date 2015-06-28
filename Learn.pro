@@ -1,9 +1,10 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets multimedia
 
 SOURCES += main.cpp \
-    datamodel.cpp
+    datamodel.cpp \
+    audiorecorder.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,6 +16,7 @@ include(deployment.pri)
 
 HEADERS += \
     cpptoml.h \
-    datamodel.h
+    datamodel.h \
+    audiorecorder.h
 
 CONFIG += c++11

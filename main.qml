@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
 import QtMultimedia 5.0
+import com.codemancers.components 1.0
 
 Rectangle {
   id: mainRoot
@@ -50,6 +51,14 @@ Rectangle {
     }
     autoPlay: false
     autoLoad: false
+  }
+
+  AudioRecorder {
+    id: recorder
+
+    onRecordingChanged: {
+      console.log("Recording state changed");
+    }
   }
 
   Timer {
