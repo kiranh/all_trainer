@@ -58,6 +58,13 @@ Rectangle {
               }
             }
 
+            Behavior on height {
+              NumberAnimation {
+                duration: 600
+                easing.type: Easing.OutBack
+              }
+            }
+
             MouseArea {
               anchors.fill: parent
               hoverEnabled: true
@@ -70,7 +77,7 @@ Rectangle {
                   Common.getSpriteImage(parent, "ok.png");
                   mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
                   if(questionData.animate) {
-                    parent.width = 399;
+                    parent.width = 400;
                     parent.height = 400;
                   }
                 } else {
