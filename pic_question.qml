@@ -53,7 +53,7 @@ Rectangle {
         Repeater {
           model: values.questions.length
           Rectangle {
-            width: 256
+            width: 350
             height: 64
             border.color: "#FF9933"
             property variant questionData: values.questions[index]

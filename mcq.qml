@@ -44,11 +44,18 @@ Rectangle {
             border.color: "#FF9933"
             property variant questionData: values.questions[index]
             Image {
-              width: 256
-              height: 256
+              width: parent.width
+              height: parent.height
               source: "file://" + assetHome + "/" + questionData.src
               fillMode: Image.PreserveAspectFit
               clip: true
+            }
+
+            Behavior on width {
+              NumberAnimation {
+                duration: 600
+                easing.type: Easing.OutBack
+              }
             }
 
             MouseArea {
@@ -59,9 +66,13 @@ Rectangle {
               }
 
               onClicked: {
-                if(values.questions[index].correct) {
+                if(questionData.correct) {
                   Common.getSpriteImage(parent, "ok.png");
                   mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
+                  if(questionData.animate) {
+                    parent.width = 399;
+                    parent.height = 400;
+                  }
                 } else {
                   var wrong = Common.getSpriteImage(parent, "wrong.png");
                   mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");

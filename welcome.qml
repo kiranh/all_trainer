@@ -20,7 +20,7 @@ Rectangle {
     Repeater {
       model: maximumPage
       Rectangle {
-        width: 320
+        width: 400
         height: 120
         border.color: "#FF9933"
         property variant contentData: Content.content[index]
