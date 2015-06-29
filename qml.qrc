@@ -16,5 +16,6 @@
         <file>loader.js</file>
         <file>home.png</file>
         <file>welcome.qml</file>
+        <file>voice_question.qml</file>
     </qresource>
 </RCC>
