@@ -4,7 +4,7 @@
 AudioRecorder::AudioRecorder(QObject *parent) : QObject(parent)
 {
     b_recording = false;
-    q_audioRecorder = QAudioRecorder(this);
+    q_audioRecorder = new QAudioRecorder(this);
     b_fileName = QString("/tmp/recording.wav");
     q_audioRecorder->setOutputLocation(QUrl(b_fileName));
 }

@@ -2,13 +2,10 @@ import QtQuick 2.4
 import QtMultimedia 5.0
 import "common.js" as Common
 
-Rectangle {
+Question {
   id: top
   width: parent.width
   height: parent.height
-  color: "#F0FFD6"
-  property variant values
-  property string assetHome
 
   Column {
     Rectangle {
@@ -70,26 +67,12 @@ Rectangle {
                 mainRoot.playHoverSound(this, questionData.sound);
               }
 
-              onClicked: {
-                if(values.questions[index].correct) {
-                  Common.getSpriteImage(parent, "ok.png");
-                  mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
-                } else {
-                  var wrong = Common.getSpriteImage(parent, "wrong.png");
-                  wrong.destroy(1000);
-                  mainRoot.playFile("file://" + assetHome + "/sounds/wrong.m4a");
-                }
-              }
+              onClicked: handleClick(questionData, parent)
             }
           }
         }
       }
     }
   }
-
-  Component.onCompleted: {
-    mainRoot.playFile("file://" + assetHome + "/" + values.sound);
-  }
-
 }
 
