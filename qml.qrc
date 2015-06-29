@@ -17,5 +17,6 @@
         <file>home.png</file>
         <file>welcome.qml</file>
         <file>voice_question.qml</file>
+        <file>question.qml</file>
     </qresource>
 </RCC>
