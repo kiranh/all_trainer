@@ -1,7 +1,6 @@
 import QtQuick 2.4
 import QtMultimedia 5.0
 import "common.js" as Common
-import Qt.WebSockets 1.0
 
 
 Question {
@@ -38,10 +37,53 @@ Question {
         anchors.centerIn: parent
       }
     }
+
+    Rectangle {
+      width: parent.width
+      height: 128
+      border.color: "red"
+      Image {
+        id: playButton
+        width: 128
+        height: 128
+        source: "qrc:/record.png"
+        fillMode: Image.PreserveAspectFit
+        clip: true
+        anchors.centerIn: parent
+
+        MouseArea {
+          anchors.fill: parent
+
+          onClicked: {
+            mainRoot.record();
+            playButton.visible = false;
+            stopButton.visible = true;
+          }
+        }
+      }
+
+      Image {
+        id: stopButton
+        width: 128
+        height: 128
+        source: "qrc:/stop.png"
+        fillMode: Image.PreserveAspectFit
+        clip: true
+        anchors.centerIn: parent
+        visible: false
+
+        MouseArea {
+          anchors.fill: parent
+
+          onClicked: {
+            mainRoot.stop();
+            playButton.visible = true;
+            stopButton.visible = false;
+            mainRoot.playLastRecord();
+          }
+        }
+      }
+    }
   }
 
-  WebSocket {
-    id: socket
-    url: "ws://192.168.1.102:9100"
-  }
 }

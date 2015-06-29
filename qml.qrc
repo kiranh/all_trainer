@@ -18,5 +18,7 @@
         <file>welcome.qml</file>
         <file>voice_question.qml</file>
         <file>Question.qml</file>
+        <file>record.png</file>
+        <file>stop.png</file>
     </qresource>
 </RCC>

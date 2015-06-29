@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Controls 1.3
 import QtMultimedia 5.0
 import com.codemancers.components 1.0
+import Qt.WebSockets 1.0
 
 Rectangle {
   id: mainRoot
@@ -65,6 +66,26 @@ Rectangle {
     id: delayedTimer
     repeat: false
     running: false
+  }
+
+  WebSocket {
+    id: socket
+    url: "ws://192.168.1.102:9100"
+
+    onTextMessageReceived: {
+      console.log("Received : " + message)
+    }
+  }
+  function record() {
+    recorder.record();
+  }
+
+  function stop() {
+    recorder.stop();
+  }
+
+  function playLastRecord() {
+    playFile("file://" + recorder.fileName);
   }
 
   function playFile(file) {
