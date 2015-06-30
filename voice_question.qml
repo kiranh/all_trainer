@@ -56,30 +56,6 @@ Question {
 
           onClicked: {
             mainRoot.record();
-            playButton.visible = false;
-            stopButton.visible = true;
-          }
-        }
-      }
-
-      Image {
-        id: stopButton
-        width: 128
-        height: 128
-        source: "qrc:/stop.png"
-        fillMode: Image.PreserveAspectFit
-        clip: true
-        anchors.centerIn: parent
-        visible: false
-
-        MouseArea {
-          anchors.fill: parent
-
-          onClicked: {
-            mainRoot.stop();
-            playButton.visible = true;
-            stopButton.visible = false;
-            mainRoot.playLastRecord();
           }
         }
       }

@@ -70,12 +70,26 @@ Rectangle {
 
   WebSocket {
     id: socket
-    url: "ws://192.168.1.102:9100"
+    url: "ws://192.168.1.2:8080"
+    active: false
 
     onTextMessageReceived: {
-      console.log("Received : " + message)
+      if(message === "identify") {
+        sendTextMessage("student")
+      } else if(message == "correct") {
+        playCorrectSound();
+      } else if(message == "wrong") {
+        playWrongSound();
+      } else {
+        console.log("Something unexpected here");
+      }
     }
   }
+
+  function playCorrectSound() {
+
+  }
+
   function record() {
     recorder.record();
   }
