@@ -108,7 +108,7 @@ Rectangle {
   function playLastRecord() {
     stop();
     playFile("file://" + data_model.getDropBoxHome() + "/sounds/you_said.mp3");
-    playDelayedSound("file://" + recorder.fileName, 2000);
+    playDelayedSound("file://" + recorder.fileName, 1500);
   }
 
   function playFile(file) {

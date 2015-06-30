@@ -56,8 +56,41 @@ Question {
 
           onClicked: {
             mainRoot.record();
+            playText.text = "Stop";
+            playButton.visible = false;
+            stopButton.visible = true;
           }
         }
+      }
+
+
+      Image {
+        id: stopButton
+        width: 128
+        height: 128
+        source: "qrc:/stop.png"
+        fillMode: Image.PreserveAspectFit
+        clip: true
+        anchors.centerIn: parent
+        visible: false
+
+        MouseArea {
+          anchors.fill: parent
+
+          onClicked: {
+            playButton.visible = true;
+            stopButton.visible = false;
+            mainRoot.playLastRecord();
+            playText.text = "Play";
+          }
+        }
+      }
+      Text {
+        id: playText
+        font.pointSize: 20
+        anchors.centerIn: parent
+        text: "Play"
+        color: "white"
       }
     }
   }
