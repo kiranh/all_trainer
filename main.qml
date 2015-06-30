@@ -71,15 +71,18 @@ Rectangle {
   WebSocket {
     id: socket
     url: "ws://192.168.1.2:8080"
-    active: false
+    active: true
 
     onTextMessageReceived: {
+      console.log(message);
       if(message === "identify") {
-        sendTextMessage("student")
-      } else if(message == "correct") {
+        sendTextMessage("student");
+      } else if(message === "1") {
         playCorrectSound();
-      } else if(message == "wrong") {
+      } else if(message === "2") {
         playWrongSound();
+      } else if(message === "3") {
+        playLastRecord();
       } else {
         console.log("Something unexpected here");
       }
@@ -87,7 +90,11 @@ Rectangle {
   }
 
   function playCorrectSound() {
+    playFile("file://" + data_model.getDropBoxHome() + "/sounds/thats_correct.mp3");
+  }
 
+  function playWrongSound() {
+    playFile("file://" + data_mode.getDropBoxHome() + "/sounds/wrong.m4a");
   }
 
   function record() {
@@ -99,7 +106,9 @@ Rectangle {
   }
 
   function playLastRecord() {
-    playFile("file://" + recorder.fileName);
+    stop();
+    playFile("file://" + data_model.getDropBoxHome() + "/sounds/you_said.mp3");
+    playDelayedSound("file://" + recorder.fileName, 2000);
   }
 
   function playFile(file) {
@@ -111,6 +120,18 @@ Rectangle {
       player.source = file;
       console.log("Playing the file : " + file);
       player.play();
+    }
+  }
+
+  function playDelayedSound(file, delay) {
+    if(file && file.length > 0) {
+      delayedTimer.stop();
+      delayedTimer.interval = delay;
+      delayedTimer.triggered.connect(function() {
+        playFile(file);
+        delayedTimer.stop();
+      });
+      delayedTimer.start();
     }
   }
 
