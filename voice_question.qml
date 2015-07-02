@@ -56,7 +56,6 @@ Question {
 
           onClicked: {
             mainRoot.record();
-            playText.text = "Stop";
             playButton.visible = false;
             stopButton.visible = true;
           }
@@ -81,16 +80,8 @@ Question {
             playButton.visible = true;
             stopButton.visible = false;
             mainRoot.playLastRecord();
-            playText.text = "Play";
           }
         }
-      }
-      Text {
-        id: playText
-        font.pointSize: 20
-        anchors.centerIn: parent
-        text: "Play"
-        color: "white"
       }
     }
   }
