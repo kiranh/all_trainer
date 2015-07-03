@@ -46,7 +46,7 @@ Question {
       width: parent.width
       height: 300
       Text {
-        font.pointSize: 32
+        font.pointSize: 20
         anchors.centerIn: parent
         text: values.text
       }
