@@ -111,6 +111,11 @@ Rectangle {
     playDelayedSound("file://" + recorder.fileName, 1500);
   }
 
+  function playLastRecordNow() {
+    stop();
+    playFile("file://" + recorder.fileName);
+  }
+
   function playFile(file) {
     if(file && file.length > 0) {
       delayedTimer.stop();

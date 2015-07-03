@@ -20,5 +20,7 @@
         <file>Question.qml</file>
         <file>record.png</file>
         <file>stop.png</file>
+        <file>explain_pic.qml</file>
+        <file>read_pic.qml</file>
     </qresource>
 </RCC>

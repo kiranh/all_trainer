@@ -69,6 +69,7 @@ Rectangle {
   }
 
   function getCurrentPage() {
+    console.log(Data.data)
     var currentData = Data.data[currentPage - 1];
     var component = Qt.createComponent("qrc:/" + currentData.type + ".qml");
     if(component.status === Component.Ready) {
