@@ -123,7 +123,6 @@ Rectangle {
         player.stop();
       }
       player.source = file;
-      console.log("Playing the file : " + file);
       player.play();
     }
   }
