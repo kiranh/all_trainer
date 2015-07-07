@@ -8,23 +8,8 @@ Question {
   height: parent.height
   Column {
     Rectangle {
-      width: top.width
-      height: 30
-      color: top.color
-      Text {
-        text: values.header
-        font.pointSize: 35
-        anchors.centerIn: parent
-      }
-    }
-    Rectangle {
-      width: top.width
-      height: 10
-      color: top.color
-    }
-    Rectangle {
       width: parent.width
-      height: 380
+      height: 500
       border.color: "#FF9933"
       Image {
         width: 640
