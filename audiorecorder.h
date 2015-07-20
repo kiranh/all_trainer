@@ -5,6 +5,8 @@
 #include <QAudioRecorder>
 #include <QString>
 
+// Record audio
+
 class AudioRecorder : public QObject
 {
     Q_OBJECT
