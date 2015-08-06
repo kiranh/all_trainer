@@ -21,14 +21,14 @@ Rectangle {
       model: maximumPage
       Rectangle {
         width: 400
-        height: 120
+        height: 80
         border.color: "#FF9933"
         property variant contentData: Content.content[index]
 
         Text {
           text: contentData.header
           anchors.centerIn: parent
-          font.pointSize: 26
+          font.pointSize: 22
         }
         MouseArea {
           hoverEnabled: true
