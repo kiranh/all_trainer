@@ -94,7 +94,7 @@ Rectangle {
   }
 
   function playWrongSound() {
-    playFile("file://" + data_mode.getDropBoxHome() + "/sounds/wrong.m4a");
+    playFile("file://" + data_model.getDropBoxHome() + "/sounds/wrong.m4a");
   }
 
   function record() {
