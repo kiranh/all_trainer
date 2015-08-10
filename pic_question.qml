@@ -51,7 +51,7 @@ Question {
           model: values.questions.length
           Rectangle {
             width: 350
-            height: 64
+            height: 100
             border.color: "#FF9933"
             property variant questionData: values.questions[index]
             Text {
