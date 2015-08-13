@@ -19,11 +19,26 @@ Rectangle {
     anchors.centerIn: parent
   }
 
+  Timer {
+    id: cartoonTimer
+    repeat: false
+    running: false
+  }
+
   Component.onCompleted: {
     console.log("I am completed");
     var seekPosition = (parseFloat(values.position)*60*1000).toFixed();
+    var duration = (parseFloat(values.duration)*60*1000).toFixed();
     console.log("Seeking to position " + seekPosition);
+    console.log("Setting the duration for " + duration);
     video.seek(seekPosition);
+    cartoonTimer.interval = duration;
+    cartoonTimer.triggered.connect(function(){
+      console.log("Stopping the video");
+      video.stop();
+      cartoonTimer.stop();
+    });
+    cartoonTimer.start();
     video.play();
   }
 }
