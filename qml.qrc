@@ -23,5 +23,6 @@
         <file>explain_pic.qml</file>
         <file>read_pic.qml</file>
         <file>pic_answer.qml</file>
+        <file>settings.png</file>
     </qresource>
 </RCC>

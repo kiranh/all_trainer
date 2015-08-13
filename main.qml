@@ -23,14 +23,28 @@ Rectangle {
         height: 64
         source: Qt.resolvedUrl("qrc:/home.png")
         anchors.centerIn: parent
-      }
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
-          showWelcomePage();
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                showWelcomePage();
+            }
         }
       }
 
+      Image {
+          id: settingsButton
+          source: Qt.resolvedUrl("qrc:/settings.png")
+          width: 64
+          height: 64
+          anchors.left: parent.left
+
+          MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                  console.log("Clicked settings page")
+              }
+          }
+      }
     }
 
     StackView {
