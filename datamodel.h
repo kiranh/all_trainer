@@ -11,8 +11,11 @@ class DataModel : public QObject
 public:
     DataModel();
     Q_INVOKABLE QString getDropBoxHome() const;
+    Q_INVOKABLE QString getDataHome() const;
 private:
     QString dropBoxHome;
+    QString dataHome;
+    void readSettingsFile();
 };
 
 #endif // DATAMODEL_H
