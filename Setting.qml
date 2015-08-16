@@ -22,6 +22,7 @@ Dialog {
 
     Row {
       TextField {
+        id: dataLocation
         width: 350
         placeholderText: qsTr("Data file location")
       }
@@ -29,11 +30,31 @@ Dialog {
       Button {
         text: "Select Folder"
         onClicked: {
-          mainRoot.getCurrentPage("FileChooser");
+          getCurrentPage("FileChooser");
         }
       }
     }
+  }
 
+  onAccepted: {
+    console.log("Saving location to " + dataLocation.text);
+    mainRoot.setDataHome(dataLocation.text);
+  }
+
+  function setSettingLocation(location) {
+    console.log("Setting the location to " + location);
+    dataLocation.text = location;
+  }
+
+  function getCurrentPage(pageName) {
+    var component = Qt.createComponent("qrc:/" + pageName + ".qml");
+    if(component.status === Component.Ready) {
+      console.log("Stuff is ready");
+      return component.createObject(setting_page, {"settingPage": setting_page});
+    } else {
+      console.log("Stuff is not ready");
+      return null;
+    }
   }
 }
 

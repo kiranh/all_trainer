@@ -185,6 +185,11 @@ Rectangle {
                        });
   }
 
+  function setDataHome(location) {
+    console.log("* Setting location to" + location);
+    data_model.setDataHome(location);
+  }
+
   function getCurrentPage(pageName) {
     var component = Qt.createComponent("qrc:/" + pageName + ".qml");
     if(component.status === Component.Ready) {

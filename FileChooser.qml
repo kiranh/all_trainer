@@ -5,11 +5,13 @@ FileDialog {
   id: fileChooser
   visible: true
   title: "Please choose settings directory"
+  property variant settingPage
   folder: shortcuts.home
   selectFolder: true
 
   onAccepted: {
     console.log("File selected")
+    settingPage.setSettingLocation(fileChooser.fileUrls[0]);
   }
 
   onRejected: {
