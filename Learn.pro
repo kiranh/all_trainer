@@ -20,3 +20,5 @@ HEADERS += \
     audiorecorder.h
 
 CONFIG += c++11
+
+DISTFILES +=
