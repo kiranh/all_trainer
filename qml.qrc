@@ -27,5 +27,6 @@
         <file>cartoon.qml</file>
         <file>Setting.qml</file>
         <file>FileChooser.qml</file>
+        <file>big_small.qml</file>
     </qresource>
 </RCC>
