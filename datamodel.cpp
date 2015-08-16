@@ -3,6 +3,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include <QFileInfo>
+#include <QUrl>
 
 QString DataModel::getDropBoxHome() const
 {
@@ -17,7 +19,7 @@ QString DataModel::getDataHome() const
 QString DataModel::setDataHome(QString pDataHome)
 {
     qDebug() << "+ Setting location to " << pDataHome;
-    dataHome = pDataHome;
+    dataHome = QUrl(pDataHome).path();
     QString settingFileLocation = QDir::homePath() + "/.srs_trainer";
     qDebug() << "File location is " << settingFileLocation;
 
@@ -31,14 +33,14 @@ QString DataModel::setDataHome(QString pDataHome)
     }
 
     QTextStream out(&settingFile);
-    out << pDataHome << "\n";
+    out << dataHome << "\n";
     settingFile.close();
     return pDataHome;
 }
 
 void DataModel::readSettingsFile()
 {
-    QFile settingFile(QDir::homePath() + ".srs_trainer");
+    QFile settingFile(QDir::homePath() + "/.srs_trainer");
     if (settingFile.exists()) {
         if (!settingFile.open(QIODevice::ReadOnly |
                               QIODevice::Text))

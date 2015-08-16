@@ -24,7 +24,7 @@ Dialog {
       TextField {
         id: dataLocation
         width: 350
-        placeholderText: qsTr("Data file location")
+        placeholderText: assetHome
       }
 
       Button {
