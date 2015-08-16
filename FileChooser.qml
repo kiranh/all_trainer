@@ -3,6 +3,7 @@ import QtQuick.Dialogs 1.2
 
 FileDialog {
   id: fileChooser
+  visible: true
   title: "Please choose settings directory"
   folder: shortcuts.home
   selectFolder: true

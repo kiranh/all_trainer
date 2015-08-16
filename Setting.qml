@@ -28,6 +28,9 @@ Dialog {
 
       Button {
         text: "Select Folder"
+        onClicked: {
+          mainRoot.getCurrentPage("FileChooser");
+        }
       }
     }
 
