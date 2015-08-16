@@ -18,41 +18,34 @@ QString DataModel::getDataHome() const
 
 QString DataModel::setDataHome(QString pDataHome)
 {
-    qDebug() << "+ Setting location to " << pDataHome;
     dataHome = QUrl(pDataHome).path();
-    QString settingFileLocation = QDir::homePath() + "/.srs_trainer";
-    qDebug() << "File location is " << settingFileLocation;
-
-    QFile settingFile(settingFileLocation);
-
-    if (!settingFile.open(QIODevice::WriteOnly |
+    if (!settingFile->open(QIODevice::WriteOnly |
                           QIODevice::Text)) {
         qDebug() << "Error opening file in text mode";
-        qDebug() << settingFile.errorString();
+        qDebug() << settingFile->errorString();
         return QString("");
     }
 
-    QTextStream out(&settingFile);
+    QTextStream out(settingFile);
     out << dataHome << "\n";
-    settingFile.close();
+    settingFile->close();
     return pDataHome;
 }
 
 void DataModel::readSettingsFile()
 {
-    QFile settingFile(QDir::homePath() + "/.srs_trainer");
-    if (settingFile.exists()) {
-        if (!settingFile.open(QIODevice::ReadOnly |
+    if (settingFile->exists()) {
+        if (!settingFile->open(QIODevice::ReadOnly |
                               QIODevice::Text))
             return;
 
-        QTextStream in(&settingFile);
+        QTextStream in(settingFile);
         while (!in.atEnd()) {
             QString line = in.readLine();
             if(!line.isEmpty())
                 dataHome = line;
         }
-        settingFile.close();
+        settingFile->close();
     }
 }
 
@@ -60,6 +53,7 @@ DataModel::DataModel()
     : QObject()
 {
     dropBoxHome = QDir::homePath() + "/Dropbox/for_advait/game";
+    settingFile = new QFile(QDir::homePath() + "/.srs_trainer");
     readSettingsFile();
 }
 

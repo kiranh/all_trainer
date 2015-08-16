@@ -4,6 +4,7 @@
 #include "cpptoml.h"
 #include <QString>
 #include <QObject>
+#include <QFile>
 
 class DataModel : public QObject
 {
@@ -16,6 +17,7 @@ public:
 private:
     QString dropBoxHome;
     QString dataHome;
+    QFile *settingFile;
     void readSettingsFile();
 };
 
