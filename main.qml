@@ -106,11 +106,11 @@ Rectangle {
   }
 
   function playCorrectSound() {
-    playFile("file://" + data_model.getDropBoxHome() + "/sounds/thats_correct.mp3");
+    playFile("file://" + data_model.getDataHome() + "/sounds/thats_correct.mp3");
   }
 
   function playWrongSound() {
-    playFile("file://" + data_model.getDropBoxHome() + "/sounds/wrong.m4a");
+    playFile("file://" + data_model.getDataHome() + "/sounds/wrong.m4a");
   }
 
   function record() {
@@ -123,7 +123,7 @@ Rectangle {
 
   function playLastRecord() {
     stop();
-    playFile("file://" + data_model.getDropBoxHome() + "/sounds/you_said.mp3");
+    playFile("file://" + data_model.getDataHome() + "/sounds/you_said.mp3");
     playDelayedSound("file://" + recorder.fileName, 1500);
   }
 
@@ -161,7 +161,7 @@ Rectangle {
       delayedTimer.interval = 1000;
       delayedTimer.triggered.connect(function() {
         if(mouseAreaObject.containsMouse) {
-          playFile("file://" + data_model.getDropBoxHome() + "/" + file);
+          playFile("file://" + data_model.getDataHome() + "/" + file);
         }
         delayedTimer.stop();
       });
@@ -189,7 +189,7 @@ Rectangle {
     var component = Qt.createComponent("qrc:/" + pageName + ".qml");
     if(component.status === Component.Ready) {
       console.log("Stuff is ready");
-      return component.createObject(mainStackView, {"assetHome": data_model.getDropBoxHome()});
+      return component.createObject(mainStackView, {"assetHome": data_model.getDataHome()});
     } else {
       console.log("Stuff is not ready");
       return null;

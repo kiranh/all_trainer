@@ -1,2 +1,2 @@
-var fileLocation = "file://" + data_model.getDropBoxHome() + "/data.js";
+var fileLocation = "file://" + data_model.getDataHome() + "/data.js";
 Qt.include(fileLocation);
