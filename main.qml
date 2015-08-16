@@ -41,8 +41,10 @@ Rectangle {
           MouseArea {
               anchors.fill: parent
               onClicked: {
-                  console.log("Clicked settings page")
+                console.log("Showing settings page");
+                var stuff = getCurrentPage("Setting");
               }
+
           }
       }
     }
@@ -186,8 +188,10 @@ Rectangle {
   function getCurrentPage(pageName) {
     var component = Qt.createComponent("qrc:/" + pageName + ".qml");
     if(component.status === Component.Ready) {
+      console.log("Stuff is ready");
       return component.createObject(mainStackView, {"assetHome": data_model.getDropBoxHome()});
     } else {
+      console.log("Stuff is not ready");
       return null;
     }
   }

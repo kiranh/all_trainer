@@ -3,17 +3,34 @@ import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 
 Dialog {
+  id: setting_page
   visible: true
+  width: 480
+  height: 200
   title: "Where are learning data files?"
+  property string assetHome
+  standardButtons: StandardButton.Save | StandardButton.Cancel
+  Column {
+    spacing: 10
+    width: parent.width
+    anchors.top: parent.top
+    anchors.topMargin: 40
 
-  contentItem: Rectangle {
-    anchors.centerIn: parent
+    Text {
+      text: "Configure location of data files"
+    }
 
-    Column {
-      Text {
-        text: "Configure location of Data files"
+    Row {
+      TextField {
+        width: 350
+        placeholderText: qsTr("Data file location")
+      }
+
+      Button {
+        text: "Select Folder"
       }
     }
+
   }
 }
 
