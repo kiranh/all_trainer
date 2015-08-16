@@ -9,8 +9,11 @@ Rectangle {
   height: mainRoot.height - 64
   color: "#F2FFD6"
   property int maximumPage: {
-    console.log(Content.content.length)
-    Content.content.length
+    if (Content.content) {
+      Content.content.length
+    } else {
+      0
+    }
   }
 
   Grid {

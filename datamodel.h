@@ -12,6 +12,7 @@ public:
     DataModel();
     Q_INVOKABLE QString getDropBoxHome() const;
     Q_INVOKABLE QString getDataHome() const;
+    Q_INVOKABLE void setDataHome(QString pDataHome);
 private:
     QString dropBoxHome;
     QString dataHome;

@@ -14,19 +14,35 @@ QString DataModel::getDataHome() const
     return dataHome;
 }
 
+void DataModel::setDataHome(QString pDataHome)
+{
+    dataHome = pDataHome;
+    QFile settingFile(QDir::homePath() + ".srs_trainer");
+
+    if (!settingFile.open(QIODevice::WriteOnly |
+                          QIODevice::Text))
+        return;
+
+    QTextStream out(&settingFile);
+    out << pDataHome << "\n";
+    settingFile.close();
+}
+
 void DataModel::readSettingsFile()
 {
-    QFile settingFile = QFile(QDir::homePath() + ".srs_trainer");
+    QFile settingFile(QDir::homePath() + ".srs_trainer");
     if (settingFile.exists()) {
         if (!settingFile.open(QIODevice::ReadOnly |
                               QIODevice::Text))
             return;
 
-        QTextStream in(&file);
+        QTextStream in(&settingFile);
         while (!in.atEnd()) {
             QString line = in.readLine();
-            dataHome = line;
+            if(!line.isEmpty())
+                dataHome = line;
         }
+        settingFile.close();
     }
 }
 
