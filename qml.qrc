@@ -29,5 +29,6 @@
         <file>FileChooser.qml</file>
         <file>big_small.qml</file>
         <file>count_more.qml</file>
+        <file>story.qml</file>
     </qresource>
 </RCC>

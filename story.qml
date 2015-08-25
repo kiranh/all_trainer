@@ -4,10 +4,12 @@ import QtMultimedia 5.0
 import "loader.js" as Content
 
 Rectangle {
-  id: welcomePage
-  width: 1024
+  id: root
+  width: 2014
   height: mainRoot.height - 64
+  visible: true
   color: "#F2FFD6"
+  property int currentPage: 1
   property int maximumPage: {
     if (Content.content) {
       Content.content.length
@@ -16,6 +18,7 @@ Rectangle {
     }
   }
 
+  property string assetHome;
   Grid {
     columns: 2
     spacing: 20
@@ -48,4 +51,3 @@ Rectangle {
     }
   }
 }
-
