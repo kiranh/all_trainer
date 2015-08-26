@@ -29,11 +29,8 @@ Rectangle {
 
   function loadImage(imageSrc, parent, properties) {
     if(imageSrc.match(/\.gif$/)) {
-      console.log("Loading gif image");
       return loadQmlPage("GifImage", parent, properties);
     } else {
-      console.log("Loading proper image");
-      console.log(properties);
       return loadQmlPage("sprite", parent, properties);
     }
   }
@@ -41,10 +38,9 @@ Rectangle {
   function loadQmlPage(pageName, parent, properties) {
     var component = Qt.createComponent("qrc:/" + pageName + ".qml");
     if(component.status === Component.Ready) {
-      console.log("Stuff is ready");
       return component.createObject(parent, properties);
     } else {
-      console.log("Stuff is not ready");
+      console.log("** Stuff is not ready");
       return null;
     }
   }

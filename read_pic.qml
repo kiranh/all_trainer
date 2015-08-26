@@ -6,15 +6,15 @@ Question {
   id: top
   width: parent.width
   height: parent.height
-  Image {
-    width: parent.width
-    height: 640
-    anchors.centerIn: parent
-    source: "file://" + assetHome + "/" + values.src
-    fillMode: Image.PreserveAspectFit
-    clip: true
-  }
   Component.onCompleted: {
+    var image = loadImage(values.src, top, {
+                            width: 640,
+                            height: 480,
+                            source: "file://" + assetHome + "/" + values.src,
+                            fillMode: Image.PreserveAspectFit,
+                            clip: true,
+                            "anchors.centerIn": top
+                          });
     mainRoot.playLastRecordNow();
   }
 }
