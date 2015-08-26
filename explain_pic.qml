@@ -8,17 +8,10 @@ Question {
   height: parent.height
   Column {
     Rectangle {
+      id: picContainer
       width: parent.width
       height: 500
       border.color: "#FF9933"
-      Image {
-        width: 640
-        height: 480
-        source: "file://" + assetHome + "/" + values.src
-        fillMode: Image.PreserveAspectFit
-        clip: true
-        anchors.centerIn: parent
-      }
     }
 
     Rectangle {
@@ -38,6 +31,14 @@ Question {
     }
   }
   Component.onCompleted: {
+    var image = loadImage(values.src, picContainer, {
+                            width: 640,
+                            height: 480,
+                            source: "file://" + assetHome + "/" + values.src,
+                            fillMode: Image.PreserveAspectFit,
+                            clip: true,
+                            "anchors.centerIn": picContainer
+                          });
     //stop recording
     mainRoot.stop();
     // start recording

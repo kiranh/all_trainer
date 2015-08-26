@@ -30,5 +30,6 @@
         <file>big_small.qml</file>
         <file>count_more.qml</file>
         <file>story.qml</file>
+        <file>GifImage.qml</file>
     </qresource>
 </RCC>
