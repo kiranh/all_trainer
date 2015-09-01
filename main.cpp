@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QQuickView view;
 
     DataModel *model = new DataModel();
-
+    view.setMinimumSize(QSize(1024, 832));
     view.rootContext()->setContextProperty(QString("data_model"), model);
 
     view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));

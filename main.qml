@@ -6,8 +6,8 @@ import Qt.WebSockets 1.0
 
 Rectangle {
   id: mainRoot
-  width: 1024
-  height: 832
+  width: parent.width
+  height: parent.height
   visible: true
   property string currentJsFile: "content.js"
 
