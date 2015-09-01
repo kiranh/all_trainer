@@ -9,7 +9,8 @@ Rectangle {
   property string assetHome
 
   Component.onCompleted: {
-    mainRoot.playFile("file://" + assetHome + "/" + values.sound);
+    if(values.sound)
+      mainRoot.playFile("file://" + assetHome + "/" + values.sound);
   }
 
   function handleClick(questionData, parent) {

@@ -133,6 +133,7 @@ Rectangle {
   }
 
   function playFile(file) {
+    console.log("Playing file " + file);
     if(file && file.length > 0) {
       delayedTimer.stop();
       if(player.playbackState === MediaPlayer.PlayingState) {
@@ -186,17 +187,14 @@ Rectangle {
   }
 
   function setDataHome(location) {
-    console.log("* Setting location to" + location);
     data_model.setDataHome(location);
   }
 
   function getCurrentPage(pageName) {
     var component = Qt.createComponent("qrc:/" + pageName + ".qml");
     if(component.status === Component.Ready) {
-      console.log("Stuff is ready");
       return component.createObject(mainStackView, {"assetHome": data_model.getDataHome()});
     } else {
-      console.log("Stuff is not ready");
       return null;
     }
   }
