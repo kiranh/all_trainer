@@ -29,7 +29,7 @@
         <file>FileChooser.qml</file>
         <file>big_small.qml</file>
         <file>count_more.qml</file>
-        <file>story.qml</file>
+        <file>subsection.qml</file>
         <file>GifImage.qml</file>
     </qresource>
 </RCC>
