@@ -39,13 +39,15 @@ Question {
                             clip: true,
                             "anchors.centerIn": picContainer
                           });
+    // stop playing any existing sound
+    mainRoot.stopPlaying();
     //stop recording
-    mainRoot.stop();
+    mainRoot.stopRecording();
     // start recording
     mainRoot.record();
   }
 
   Component.onDestruction:  {
-    mainRoot.stop();
+    mainRoot.stopRecording();
   }
 }

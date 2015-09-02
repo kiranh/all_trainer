@@ -117,18 +117,18 @@ Rectangle {
     recorder.record();
   }
 
-  function stop() {
+  function stopRecording() {
     recorder.stop();
   }
 
   function playLastRecord() {
-    stop();
+    stopRecording();
     playFile("file://" + data_model.getDataHome() + "/sounds/you_said.mp3");
     playDelayedSound("file://" + recorder.fileName, 1500);
   }
 
   function playLastRecordNow() {
-    stop();
+    stopRecording();
     playFile("file://" + recorder.fileName);
   }
 
@@ -142,6 +142,10 @@ Rectangle {
       player.source = file;
       player.play();
     }
+  }
+
+  function stopPlaying() {
+    player.stop();
   }
 
   function playDelayedSound(file, delay) {
