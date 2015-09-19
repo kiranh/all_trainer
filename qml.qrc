@@ -31,5 +31,7 @@
         <file>count_more.qml</file>
         <file>subsection.qml</file>
         <file>GifImage.qml</file>
+        <file>read_text.qml</file>
+        <file>child_turn.qml</file>
     </qresource>
 </RCC>
