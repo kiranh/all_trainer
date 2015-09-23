@@ -68,8 +68,33 @@ Rectangle {
     }
   }
 
+  function shuffle_array(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
   function getCurrentPage() {
     var currentData = Data.data[currentPage - 1];
+    if(currentData.questions && (currentData.questions instanceof Array)) {
+      var questions = currentData.questions;
+      shuffle_array(questions);
+      currentData.questions = questions;
+    }
+
     var component = Qt.createComponent("qrc:/" + currentData.type + ".qml");
     if(component.status === Component.Ready) {
       return component.createObject(stackView, {"values": currentData, "assetHome": assetHome});
