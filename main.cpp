@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     view.setMinimumSize(QSize(1024, 832));
     view.rootContext()->setContextProperty(QString("data_model"), model);
 
-    view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
+    view.setSource(QUrl(QStringLiteral("qrc:/qml_ui/main.qml")));
     view.show();
     return app.exec();
 }

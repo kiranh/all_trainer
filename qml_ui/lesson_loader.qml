@@ -21,7 +21,7 @@ Rectangle {
       color: "#FF8A24"
       Image {
         id: backButton
-        source: Qt.resolvedUrl("qrc:/back.png")
+        source: Qt.resolvedUrl("qrc:/images/back.png")
         anchors.centerIn: parent
       }
       MouseArea {
@@ -53,7 +53,7 @@ Rectangle {
       color: "#FF8A24"
       Image {
         id: forwardButton
-        source: Qt.resolvedUrl("qrc:/forward.png")
+        source: Qt.resolvedUrl("qrc:/images/forward.png")
         anchors.centerIn: parent
       }
       MouseArea {

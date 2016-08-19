@@ -21,7 +21,7 @@ Rectangle {
         id: homeButton
         width: 64
         height: 64
-        source: Qt.resolvedUrl("qrc:/home.png")
+        source: Qt.resolvedUrl("qrc:/images/home.png")
         anchors.centerIn: parent
         MouseArea {
             anchors.fill: parent
@@ -33,7 +33,7 @@ Rectangle {
 
       Image {
           id: settingsButton
-          source: Qt.resolvedUrl("qrc:/settings.png")
+          source: Qt.resolvedUrl("qrc:/images/settings.png")
           width: 64
           height: 64
           anchors.left: parent.left
