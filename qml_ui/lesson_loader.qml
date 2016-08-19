@@ -95,7 +95,7 @@ Rectangle {
       currentData.questions = questions;
     }
 
-    var component = Qt.createComponent("qrc:/" + currentData.type + ".qml");
+    var component = Qt.createComponent("qrc:/qml_ui/" + currentData.type + ".qml");
     if(component.status === Component.Ready) {
       return component.createObject(stackView, {"values": currentData, "assetHome": assetHome});
     } else {

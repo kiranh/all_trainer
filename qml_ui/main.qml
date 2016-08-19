@@ -195,7 +195,7 @@ Rectangle {
   }
 
   function getCurrentPage(pageName) {
-    var component = Qt.createComponent("qrc:/" + pageName + ".qml");
+    var component = Qt.createComponent("qrc:/qml_ui/" + pageName + ".qml");
     if(component.status === Component.Ready) {
       return component.createObject(mainStackView, {"assetHome": data_model.getDataHome()});
     } else {
