@@ -1,11 +1,12 @@
 #include "audiorecorder.h"
 #include <QUrl>
+#include <QDir>
 
 AudioRecorder::AudioRecorder(QObject *parent) : QObject(parent)
 {
     b_recording = false;
     q_audioRecorder = new QAudioRecorder(this);
-    b_fileName = QString("/tmp/recording.wav");
+    b_fileName = QDir::cleanPath(QDir::tempPath() + QDir::separator() + QString("recording.wav"));
     q_audioRecorder->setOutputLocation(QUrl(b_fileName));
 }
 
