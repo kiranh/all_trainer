@@ -37,7 +37,7 @@ Rectangle {
   }
 
   function loadQmlPage(pageName, parent, properties) {
-    var component = Qt.createComponent("qrc:/" + pageName + ".qml");
+    var component = Qt.createComponent("qrc:/qml_ui/" + pageName + ".qml");
     if(component.status === Component.Ready) {
       return component.createObject(parent, properties);
     } else {
