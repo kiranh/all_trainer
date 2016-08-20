@@ -132,16 +132,31 @@ Rectangle {
     playFile("file://" + recorder.fileName);
   }
 
-  function playFile(file) {
+  function playFile(file, stop_func) {
     console.log("Playing file " + file);
     if(file && file.length > 0) {
       delayedTimer.stop();
       if(player.playbackState === MediaPlayer.PlayingState) {
         player.stop();
       }
+      if (stop_func !== undefined) {
+        player.stopped.connect(stop_func);
+      }
       player.source = file;
       player.play();
     }
+  }
+
+  function delay(delayTime, cb) {
+      delayedTimer.stop();
+      delayedTimer.interval = delayTime;
+      delayedTimer.triggered.connect(cb);
+      delayedTimer.start();
+  }
+
+  function simpleFilePlay(file, stopCallback) {
+    player.source = file;
+    player.play();
   }
 
   function stopPlaying() {
@@ -202,5 +217,9 @@ Rectangle {
       console.log(component.errorString());
       return null;
     }
+  }
+
+  function onStopPlaying(stopCallBack) {
+    player.stopped.connect(stopCallBack);
   }
 }
