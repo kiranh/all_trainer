@@ -13,9 +13,12 @@ Question {
       height: (top.height)/5.0
       color: top.color
       Text {
+        width: parent.width - 20
         text: values.header
         font.pointSize: values.text_size || 35
         anchors.centerIn: parent
+        wrapMode: Text.WordWrap
+        anchors.margins: 10
       }
     }
     Rectangle {
