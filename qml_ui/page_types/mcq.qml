@@ -14,7 +14,7 @@ Question {
       color: top.color
       Text {
         text: values.header
-        font.pointSize: 35
+        font.pointSize: values.text_size || 35
         anchors.centerIn: parent
       }
     }

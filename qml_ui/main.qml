@@ -176,7 +176,6 @@ Rectangle {
 
   function showNewPage(pageName, pageJs) {
     mainRoot.currentJsFile = pageJs;
-
     mainStackView.push({
                          "item": getCurrentPage(pageName),
                          immediate: true, replace: true, destroyOnPop: true
@@ -200,6 +199,7 @@ Rectangle {
     if(component.status === Component.Ready) {
       return component.createObject(mainStackView, {"assetHome": data_model.getDataHome()});
     } else {
+      console.log(component.errorString());
       return null;
     }
   }

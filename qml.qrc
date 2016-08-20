@@ -34,5 +34,6 @@
         <file>qml_ui/subsection.qml</file>
         <file>qml_ui/page_types/voice_question.qml</file>
         <file>qml_ui/welcome.qml</file>
+        <file>qml_ui/page_types/mcq_anim.qml</file>
     </qresource>
 </RCC>
