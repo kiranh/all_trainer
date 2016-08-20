@@ -41,7 +41,7 @@ Rectangle {
     if(component.status === Component.Ready) {
       return component.createObject(parent, properties);
     } else {
-      console.log("** Stuff is not ready");
+      console.log(component.errorString());
       return null;
     }
   }

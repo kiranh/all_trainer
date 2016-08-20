@@ -4,7 +4,10 @@ import "../common.js" as Common
 import "../"
 
 
-
+/*
+ * This type implements big and small type of questions. It
+ * requires exactly two options.
+ */
 Question {
   id: top
   width: parent.width
