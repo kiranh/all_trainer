@@ -8,31 +8,31 @@
         <file>images/settings.png</file>
         <file>images/stop.png</file>
         <file>images/wrong.png</file>
-        <file>qml_ui/big_small.qml</file>
-        <file>qml_ui/cartoon.qml</file>
-        <file>qml_ui/child_turn.qml</file>
+        <file>qml_ui/page_types/big_small.qml</file>
+        <file>qml_ui/page_types/cartoon.qml</file>
+        <file>qml_ui/page_types/child_turn.qml</file>
         <file>qml_ui/common.js</file>
         <file>qml_ui/count_more.qml</file>
         <file>qml_ui/data.js</file>
-        <file>qml_ui/explain_pic.qml</file>
+        <file>qml_ui/page_types/explain_pic.qml</file>
         <file>qml_ui/FileChooser.qml</file>
         <file>qml_ui/GifImage.qml</file>
-        <file>qml_ui/intro.qml</file>
+        <file>qml_ui/page_types/intro.qml</file>
         <file>qml_ui/intro_pic.qml</file>
         <file>qml_ui/lesson_loader.qml</file>
         <file>qml_ui/loader.js</file>
         <file>qml_ui/main.qml</file>
         <file>qml_ui/MainForm.ui.qml</file>
-        <file>qml_ui/mcq.qml</file>
-        <file>qml_ui/pic_answer.qml</file>
-        <file>qml_ui/pic_question.qml</file>
+        <file>qml_ui/page_types/mcq.qml</file>
+        <file>qml_ui/page_types/pic_answer.qml</file>
+        <file>qml_ui/page_types/pic_question.qml</file>
         <file>qml_ui/Question.qml</file>
-        <file>qml_ui/read_pic.qml</file>
-        <file>qml_ui/read_text.qml</file>
+        <file>qml_ui/page_types/read_pic.qml</file>
+        <file>qml_ui/page_types/read_text.qml</file>
         <file>qml_ui/Setting.qml</file>
         <file>qml_ui/sprite.qml</file>
         <file>qml_ui/subsection.qml</file>
-        <file>qml_ui/voice_question.qml</file>
+        <file>qml_ui/page_types/voice_question.qml</file>
         <file>qml_ui/welcome.qml</file>
     </qresource>
 </RCC>
