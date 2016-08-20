@@ -3,6 +3,9 @@ import QtQuick.Controls 1.3
 import QtMultimedia 5.0
 import "loader.js" as Data
 
+/**
+  * This file loads actual questions
+  */
 Rectangle {
   id: root
   width: 1024
@@ -94,11 +97,13 @@ Rectangle {
       shuffle_array(questions);
       currentData.questions = questions;
     }
+    console.log("Calling getCurrentPage in lesson loader " + currentData.type);
 
-    var component = Qt.createComponent("qrc:/qml_ui/" + currentData.type + ".qml");
+    var component = Qt.createComponent("qrc:/qml_ui/page_types/" + currentData.type + ".qml");
     if(component.status === Component.Ready) {
-      return component.createObject(stackView, {"values": currentData, "assetHome": assetHome});
+        return component.createObject(stackView, {"values": currentData, "assetHome": assetHome});
     } else {
+        console.log(component.errorString());
       return null;
     }
   }
