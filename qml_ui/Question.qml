@@ -30,13 +30,13 @@ Rectangle {
 
   function loadImage(imageSrc, parent, properties) {
     if(imageSrc.match(/\.gif$/)) {
-      return loadQmlPage("GifImage", parent, properties);
+      return getQmlImageLoader("GifImage", parent, properties);
     } else {
-      return loadQmlPage("sprite", parent, properties);
+      return getQmlImageLoader("sprite", parent, properties);
     }
   }
 
-  function loadQmlPage(pageName, parent, properties) {
+  function getQmlImageLoader(pageName, parent, properties) {
     var component = Qt.createComponent("qrc:/qml_ui/" + pageName + ".qml");
     if(component.status === Component.Ready) {
       return component.createObject(parent, properties);
