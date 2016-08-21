@@ -40,10 +40,9 @@ Question {
       width: top.width
       height: top.height - 100
       color: top.color
-      anchors.horizontalCenter: parent.horizontalCenter
+      border.color: "blue"
       Loader {
         id: optionLoader
-        anchors.fill: parent
         property string src
         property string snd_src
       }
@@ -52,8 +51,9 @@ Question {
     Component {
       id: image_component
       Image {
-        width: parent.width
-        height: parent.height
+        width: 400
+        height: 400
+        anchors.centerIn: parent
         source: "file://" + assetHome + "/" + src
         fillMode: Image.PreserveAspectFit
         clip: true
@@ -111,14 +111,12 @@ Question {
   }
 
   function loadOptionItem() {
-    console.log("Current time is", new Date().toLocaleTimeString());
     if (top.index < 4 ) {
       optionLoader.src = values.questions[top.index].src;
-      console.log("From load option index is", top.index, " and src is ", values.questions[top.index].src);
       var soundFile = values.questions[top.index].sound;
       optionLoader.sourceComponent = image_component;
       top.index++;
-      mainRoot.simpleFilePlay("file://" + assetHome + "/" + soundFile);
+      mainRoot.simplePlay("file://" + assetHome + "/" + soundFile);
    } else {
       optionLoader.sourceComponent = imageGrid;
     }
