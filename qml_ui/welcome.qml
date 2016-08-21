@@ -33,6 +33,7 @@ Rectangle {
           anchors.centerIn: parent
           font.pointSize: 22
         }
+
         MouseArea {
           hoverEnabled: true
           anchors.fill: parent

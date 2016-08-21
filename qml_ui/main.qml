@@ -197,6 +197,7 @@ Rectangle {
                        });
   }
 
+  // Shows the first welcome page
   function showWelcomePage() {
     mainRoot.currentJsFile = "content.js"
     mainStackView.push({
