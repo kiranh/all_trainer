@@ -15,6 +15,7 @@ Rectangle {
 
   function handleClick(questionData, parent) {
     if(questionData.correct) {
+      root.disableNavigation = false;
       Common.getSpriteImage(parent, "ok.png");
       mainRoot.playFile("file://" + assetHome + "/" + questionData.correct_sound);
       if(questionData.animate) {

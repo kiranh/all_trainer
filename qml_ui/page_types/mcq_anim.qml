@@ -18,6 +18,11 @@ Question {
     }
   }
 
+  Component.onDestruction: {
+    mainRoot.removePlayCallback(loadOptionItem);
+    root.disableNavigation = false;
+  }
+
   Column {
     Rectangle {
       width: top.width
@@ -121,7 +126,6 @@ Question {
       top.index++;
       mainRoot.simpleFilePlay("file://" + assetHome + "/" + soundFile);
    } else {
-      root.disableNavigation = false;
       optionLoader.sourceComponent = imageGrid;
       mainRoot.removePlayCallback(loadOptionItem);
     }
