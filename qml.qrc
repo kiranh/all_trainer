@@ -22,7 +22,6 @@
         <file>qml_ui/lesson_loader.qml</file>
         <file>qml_ui/loader.js</file>
         <file>qml_ui/main.qml</file>
-        <file>qml_ui/MainForm.ui.qml</file>
         <file>qml_ui/page_types/mcq.qml</file>
         <file>qml_ui/page_types/pic_answer.qml</file>
         <file>qml_ui/page_types/pic_question.qml</file>
