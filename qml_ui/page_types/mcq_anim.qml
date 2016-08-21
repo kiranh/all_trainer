@@ -40,9 +40,9 @@ Question {
       width: top.width
       height: top.height - 100
       color: top.color
-      border.color: "blue"
       Loader {
         id: optionLoader
+        anchors.centerIn: parent
         property string src
         property string snd_src
       }
@@ -53,7 +53,6 @@ Question {
       Image {
         width: 400
         height: 400
-        anchors.centerIn: parent
         source: "file://" + assetHome + "/" + src
         fillMode: Image.PreserveAspectFit
         clip: true
@@ -65,7 +64,6 @@ Question {
       Grid {
         columns: 2
         spacing: 20
-        anchors.centerIn: parent
         Repeater {
           model: values.questions.length
           Rectangle {
@@ -116,7 +114,7 @@ Question {
       var soundFile = values.questions[top.index].sound;
       optionLoader.sourceComponent = image_component;
       top.index++;
-      mainRoot.simplePlay("file://" + assetHome + "/" + soundFile);
+      mainRoot.simpleFilePlay("file://" + assetHome + "/" + soundFile);
    } else {
       optionLoader.sourceComponent = imageGrid;
     }
