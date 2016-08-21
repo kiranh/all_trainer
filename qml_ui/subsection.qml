@@ -3,6 +3,8 @@ import QtQuick.Controls 1.3
 import QtMultimedia 5.0
 import "loader.js" as Content
 
+
+// subsection loads
 Rectangle {
   id: root
   width: 2014

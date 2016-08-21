@@ -11,6 +11,7 @@ Question {
 
   Component.onCompleted: {
     if(values.sound) {
+      root.disableNavigation = true;
       loadOptionItem.bind(top);
       mainRoot.onStopPlaying(loadOptionItem);
       mainRoot.simpleFilePlay("file://" + assetHome + "/" + values.sound);
@@ -23,9 +24,13 @@ Question {
       height: (top.height)/5.0
       color: top.color
       Text {
+        width: parent.width - 20
         text: values.header
-        font.pointSize: 35
+        font.pointSize: values.text_size || 35
         anchors.centerIn: parent
+        wrapMode: Text.WordWrap
+        anchors.margins: 10
+        horizontalAlignment: Text.Center
       }
     }
 
@@ -116,7 +121,9 @@ Question {
       top.index++;
       mainRoot.simpleFilePlay("file://" + assetHome + "/" + soundFile);
    } else {
+      root.disableNavigation = false;
       optionLoader.sourceComponent = imageGrid;
+      mainRoot.removePlayCallback(loadOptionItem);
     }
   }
 }

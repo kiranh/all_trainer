@@ -14,6 +14,7 @@ Rectangle {
   property int currentPage: 1
   property int maximumPage: Data.data.length
   property string assetHome;
+  property bool disableNavigation: false
 
 
   Row {
@@ -30,7 +31,7 @@ Rectangle {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-          if(currentPage > 1) {
+          if((currentPage > 1) && !disableNavigation) {
             currentPage = currentPage - 1
             stackView.push({"item": getCurrentPage(), immediate: true, replace: true, destroyOnPop: true});
           }
@@ -62,7 +63,7 @@ Rectangle {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-          if(currentPage < maximumPage) {
+          if((currentPage < maximumPage) && !disableNavigation) {
             currentPage += 1
             stackView.push({"item": getCurrentPage(), immediate: true, replace: true, destroyOnPop: true});
           }
@@ -97,13 +98,11 @@ Rectangle {
       shuffle_array(questions);
       currentData.questions = questions;
     }
-    console.log("Calling getCurrentPage in lesson loader " + currentData.type);
-
     var component = Qt.createComponent("qrc:/qml_ui/page_types/" + currentData.type + ".qml");
     if(component.status === Component.Ready) {
-        return component.createObject(stackView, {"values": currentData, "assetHome": assetHome});
+      return component.createObject(stackView, {"values": currentData, "assetHome": assetHome});
     } else {
-        console.log(component.errorString());
+      console.log(component.errorString());
       return null;
     }
   }

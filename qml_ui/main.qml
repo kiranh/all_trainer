@@ -191,19 +191,21 @@ Rectangle {
 
   function showNewPage(pageName, pageJs) {
     mainRoot.currentJsFile = pageJs;
-    mainStackView.push({
-                         "item": getCurrentPage(pageName),
-                         immediate: true, replace: true, destroyOnPop: true
-                       });
+    var viewProperties = {
+      "item": getCurrentPage(pageName), immediate: true,
+      replace: true, destroyOnPop: true
+    };
+    mainStackView.push(viewProperties);
   }
 
   // Shows the first welcome page
   function showWelcomePage() {
     mainRoot.currentJsFile = "content.js"
-    mainStackView.push({
-                         "item": getCurrentPage("welcome"),
-                         immediate: true, replace: true, destroyOnPop: true
-                       });
+    var viewProperties = {
+      "item": getCurrentPage("welcome"), immediate: true,
+      replace: true, destroyOnPop: true
+    };
+    mainStackView.push(viewProperties);
   }
 
   function setDataHome(location) {
@@ -222,5 +224,9 @@ Rectangle {
 
   function onStopPlaying(stopCallBack) {
     player.stopped.connect(stopCallBack);
+  }
+
+  function removePlayCallback(stopCallBack) {
+    player.stopped.disconnect(stopCallBack);
   }
 }
