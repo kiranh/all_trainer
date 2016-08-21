@@ -19,6 +19,7 @@ Question {
         anchors.centerIn: parent
         wrapMode: Text.WordWrap
         anchors.margins: 10
+        horizontalAlignment: Text.Center
       }
     }
     Rectangle {
